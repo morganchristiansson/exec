@@ -19,11 +19,7 @@ module Exec
     end
     def system_v(*args)
       $stderr.puts(*args)
-      case _system(*args)
-        when true ; true
-        when nil  ; raise CommandNotFoundException
-        else $?.exitstatus
-      end
+      system(*args)
     end
     def system!(*args)
       case _system(*args)
@@ -34,11 +30,7 @@ module Exec
     end
     def system_v!(*args)
       $stderr.puts(*args)
-      case _system(*args)
-        when true ; true
-        when nil  ; raise CommandNotFoundException
-        else      ; raise NonZeroExitCodeException
-      end
+      system!(*args)
     end
   end
 end
