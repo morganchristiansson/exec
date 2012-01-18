@@ -1,9 +1,9 @@
 module Exec
-  class NonZeroExitCodeException < Exception
+  class NonZeroExitCodeException < StandardError
     def initialize
     end
   end
-  class CommandNotFoundException < Exception
+  class CommandNotFoundException < StandardError
     def initialize
     end
   end

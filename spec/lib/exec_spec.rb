@@ -60,6 +60,9 @@ describe Exec do
     context "with unknown command" do
       specify { expect { Exec.system!("asdfasdf") }.should raise_error ::Exec::CommandNotFoundException }
     end
+    context "with rescue expression should catch the error" do
+      specify { expect { Exec.system!("asdfasdf") rescue  nil }.should_not raise_error }
+    end
   end
 end
 
