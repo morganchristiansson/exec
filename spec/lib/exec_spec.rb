@@ -8,6 +8,7 @@ describe Exec do
 
   describe '#system' do
     context "with successful completion" do
+      before { Exec.should_receive(:_system).once.and_return true }
       specify { Exec.system("true").should == true }
     end
     context "with non-zero exit code" do

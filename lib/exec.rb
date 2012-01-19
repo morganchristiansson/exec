@@ -10,7 +10,6 @@ module Exec
   class << self
     alias :_system :system
     def system(*args)
-      _system(*args)
       case _system(*args)
         when true ; true
         when nil  ; raise CommandNotFoundException
